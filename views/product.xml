@@ -1,0 +1,78 @@
+<odoo>
+  <data>
+      <record model="ir.ui.view" id="product_lazada_list">
+            <field name="name">Product Template</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//field[@name='name']" position="after">            
+                      <field name="brand"/>
+	                  <field name="status"/>    
+                      <field name="skus_status" optional="hide"/>  
+                      <field name="skus_quantity" optional="hide"/>  
+                      <field name="skus_product_weight" optional="hide"/>   
+                      <field name="seller_sku" optional="hide"/>  
+                      <field name="skus_shopSku" optional="hide"/>  
+                      <field name="skus_url" optional="hide"/> 
+                      <field name="skus_package_width" optional="hide"/>  
+                      <field name="skus_special_to_time" optional="hide"/>  
+                      <field name="skus_special_from_time" optional="hide"/>  
+                      <field name="skus_special_price" optional="hide"/>  
+                      <field name="skus_package_height" optional="hide"/> 
+                      <field name="skus_package_length" optional="hide"/>  
+                      <field name="skus_package_weight" optional="hide"/>  
+                      <field name="skus_available" optional="hide"/>  
+                      <field name="sku_id" optional="hide"/> 
+                      <field name="skus_special_to_date" optional="hide"/>  
+                      <field name="suspendedSkus" optional="hide"/>  
+                      <field name="subStatus" optional="hide"/>  
+                      <field name="trialProduct" optional="hide"/>  
+                      <field name="rejectReason_suggestion" optional="hide"/> 
+                      <field name="rejectReason_violationDetail" optional="hide"/>  
+                      <field name="short_description" optional="hide"/>  
+                      <field name="warranty_type" optional="hide"/>  
+                      
+                </xpath>    
+            </field>
+        </record>
+
+      <record model="ir.ui.view" id="product_lazada_form">
+            <field name="name">Product Template Form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[1]" position="inside">
+	                <group>
+	                    <field name="brand"/>
+	                    <field name="status"/>
+	                </group>
+	            </xpath>    
+            </field>
+      </record>
+
+      <record id="get_product" model="ir.ui.view">
+            <field name="name">Get Product</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+	          <field name="arch" type="xml">
+                  <xpath expr="//form//sheet" position="before">            
+                      <header>
+                        <button name="get_product" string="Get Product" type="object"/>
+                      </header>
+                  </xpath>    
+            </field>
+      </record>
+
+      <!-- <record model="ir.ui.view" id="sale_order_item_lazada_list">
+            <field name="name">Sale Order Item List</field>
+            <field name="model">sale.order.line</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//field[@name='name']" position="after">            
+                      <field name="voucher"/>
+	                    <field name="warehouse_code"/>    
+                 </xpath>    
+            </field>
+        </record> -->
+  </data>
+</odoo>

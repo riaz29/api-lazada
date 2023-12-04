@@ -1,0 +1,110 @@
+<odoo>
+  <data>
+      <record model="ir.ui.view" id="sale_order_lazada_list">
+            <field name="name">Sale Order List</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//field[@name='create_date']" position="after">            
+                      <field name="voucher"/>
+	                    <field name="warehouse_code"/>    
+                      <field name="order_number" optional="hide"/>  
+                      <field name="voucher_code" widget="image" optional="hide"/>  
+                      <field name="gift_option" optional="hide"/>   
+                      <field name="shipping_fee_discount_platform" optional="hide"/>  
+                      <field name="promised_shipping_times" optional="hide"/>  
+                      <field name="national_registration_number" optional="hide"/> 
+                      <field name="shipping_fee_original" optional="hide"/>  
+                      <field name="payment_method" optional="hide"/>  
+                      <field name="shipping_fee_discount_seller" optional="hide"/>  
+                      <field name="shipping_fee" optional="hide"/>  
+                      <field name="branch_number" optional="hide"/> 
+                      <field name="tax_code" optional="hide"/>  
+                      <field name="items_count" optional="hide"/>  
+                      <field name="delivery_info" optional="hide"/>  
+                      <field name="lazada_order_id"/> 
+                      <field name="order_status"/>
+                      <!-- <field name="address_billing_country" optional="hide"/>  
+                      <field name="address_billing_city" optional="hide"/>
+                      <field name="address_billing_address1" optional="hide"/>  
+                      <field name="address_billing_address2" optional="hide"/>
+                      <field name="address_billing_address3" optional="hide"/>  
+                      <field name="address_billing_address4" optional="hide"/>  
+                      <field name="address_billing_address5" optional="hide"/>
+                      <field name="address_billing_phone" optional="hide"/>  
+                      <field name="address_billing_phone2" optional="hide"/>  
+                      <field name="address_billing_post_code" optional="hide"/>
+                      <field name="address_billing_first_name" optional="hide"/>  
+                      <field name="address_billing_last_name" optional="hide"/>  
+                      <field name="address_shipping_country" optional="hide"/>  
+                      <field name="address_shipping_city" optional="hide"/>
+                      <field name="address_shipping_address1" optional="hide"/>  
+                      <field name="address_shipping_address2" optional="hide"/>
+                      <field name="address_shipping_address3" optional="hide"/>  
+                      <field name="address_shipping_address4" optional="hide"/>  
+                      <field name="address_shipping_address5" optional="hide"/>
+                      <field name="address_shipping_phone" optional="hide"/>  
+                      <field name="address_shipping_phone2" optional="hide"/>  
+                      <field name="address_shipping_post_code" optional="hide"/>
+                      <field name="address_shipping_first_name" optional="hide"/>  
+                      <field name="address_shipping_last_name" optional="hide"/>  
+                      <field name="lazada_order_id" optional="hide"/> -->
+                      <field name="gift_message" optional="hide"/>  
+                      <field name="remarks" optional="hide"/>
+                      <field name="request_id" optional="hide"/>
+                </xpath>    
+            </field>
+        </record>
+
+      <record model="ir.ui.view" id="sale_order_lazada_form">
+            <field name="name">Sale Order Form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[1]" position="inside">
+	                <group>
+	                    <field name="voucher"/>
+	                    <field name="warehouse_code"/>
+	                </group>
+	            </xpath>    
+            </field>
+      </record>
+
+      <record id="get_product" model="ir.ui.view">
+            <field name="name">Get Product</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+	          <field name="arch" type="xml">
+                  <xpath expr="//form//sheet" position="before">            
+                      <header>
+                        <button name="get_product" string="Get Product" type="object"/>
+                      </header>
+                  </xpath>    
+            </field>
+      </record>
+      <record id="sale_order_get_order" model="ir.ui.view">
+            <field name="name">Sale Get Data</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+	          <field name="arch" type="xml">
+                <button name="action_quotation_send" position="after">
+                  <button name="get_order" string="Get Order" type="object"/>
+                  <button name="status_update" string="Order ID" type="object"/>
+                </button>
+            
+            </field>
+      </record>
+
+      <!-- <record model="ir.ui.view" id="sale_order_item_lazada_list">
+            <field name="name">Sale Order Item List</field>
+            <field name="model">sale.order.line</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//field[@name='name']" position="after">            
+                      <field name="voucher"/>
+	                    <field name="warehouse_code"/>    
+                 </xpath>    
+            </field>
+        </record> -->
+  </data>
+</odoo>

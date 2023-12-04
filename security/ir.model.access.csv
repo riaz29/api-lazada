@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_lazada_sale_lazada,sale_lazada.sale_lazada,model_sale_lazada_sale_lazada,base.group_user,1,1,1,1
